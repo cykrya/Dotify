@@ -12,12 +12,12 @@ class Login extends Component {
         <div className="body-login">
           <div>
             <h2 className="title-login">
-              Sign in to your account
+              Sign in
             </h2>
           </div>
           <form className="form-signin" action="#" method="POST">
             <a
-              className="link-signin"
+              className="anchor-login"
               href={`https://accounts.spotify.com/authorize?${formatParameter(
                 {
                   response_type: "token",

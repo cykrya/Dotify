@@ -38,7 +38,7 @@ class Home extends Component {
     return (
       <div className="body">
         <h2 className="title-home">
-          Home
+          Search Track
         </h2>
         <form onSubmit={this.Search} className="ssearch">
           <input
