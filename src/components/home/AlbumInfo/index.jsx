@@ -1,7 +1,8 @@
 import React from "react";
-
+import Selectbtn from "../Selectbtn";
 const AlbumInfo = ({ data }) => {
   const album = data.album;
+  console.log(album);
   return (
     <div className="album-body">
       <div className="album-imgg">
@@ -15,13 +16,11 @@ const AlbumInfo = ({ data }) => {
         <div className="album-info">
           <h3 className="album-track">
             <a className="anchor" href={data.external_urls.spotify }>
-              
               {data.name}
             </a>
           </h3>
           <h6 className="album-name">
             <a className="anchor" href={album.external_urls.spotify}>
-              
               {album.name}
             </a>
           </h6>
@@ -42,11 +41,8 @@ const AlbumInfo = ({ data }) => {
             ))}
           </p>
         </div>
-        <div className="select">
-          <button className="btn-select">
-            Select
-          </button>
-        </div>
+        <Selectbtn/>
+        
       </div>
     </div>
   );

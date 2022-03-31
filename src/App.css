@@ -1,11 +1,11 @@
 body {
     padding-left: 100px;
-    background-image: url("./pawel-czerwinski-qztBRIrU1FM-unsplash.jpg");
+    background-image: url("./components/img/pawel-czerwinski-qztBRIrU1FM-unsplash.jpg");
     color: #3B3045;
 }
 
 .album-body {
-    background-image: url("./kiwihug-cqhXfrRHCPo-unsplash.jpg");
+    background-image: url("./components/img/kiwihug-cqhXfrRHCPo-unsplash.jpg");
     background-size: contain;
     width: 300px;
     border: 5px inset #FF7770;
@@ -45,7 +45,7 @@ button {
     text-align: center;
     width: 150px;
     padding: 10px;
-    background-image: url("./stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg");
+    background-image: url("./components/img/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -62,16 +62,16 @@ button {
 button:hover {
     color: #201a25;
     font-size: 20px;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 
 .search-button:hover {
     font-size: 14px;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 
-.select {
-    padding-bottom: 10px;
+.btn-select {
+    margin-bottom: 10px;
 }
 
 .album-img {
