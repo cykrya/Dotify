@@ -1,19 +1,21 @@
-import React, { Component } from "react";
+import React, {useState } from "react";
 import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
 // import albums from "./albums";
 
-class Home extends Component {
-  state = { albums: [], keyword: "" };
 
-  Search = async (e) => {
+
+const Home = ({ accessToken }) => {
+  const [Albums, setAlbums] = useState([]);
+  const [searchTrack, setSearchTrack] = useState("");
+  const [Selected, setSelected] = useState([]);
+
+  const Search = async (e) => {
     e.preventDefault();
-    const { keyword } = this.state;
-    const { accessToken } = this.props;
     const Authorization = `Bearer ${accessToken}`;
     fetch(
       `https://api.spotify.com/v1/search?${formatParameter({
-        q: keyword,
+        q: searchTrack,
         type: "track",
       })}`,
       {
@@ -25,39 +27,36 @@ class Home extends Component {
     )
       .then((response) => response.json())
       .then((res) => {
-        this.setState({ albums: res.tracks.items });
+        setAlbums(res.tracks.items);
       });
   };
 
-  handleInputChange = (e) => {
-    this.setState({ keyword: e.target.value });
-  };
-
-  render() {
-    const { albums } = this.state;
-    return (
-      <div className="body">
-        <h2 className="title-home">
-          Search Track
-        </h2>
-        <form onSubmit={this.Search} className="ssearch">
-          <input
-            onChange={this.handleInputChange}
-            className="inputt"
-            type="text"
+  return (
+    <div className="body">
+      <h2 className="title-home">
+      Home
+      </h2>
+      <form onSubmit={Search} className="ssearch">
+        <input
+          onChange={(e) => setSearchTrack(e.target.value)}
+          className="inputt"
+          type="text"
+        />
+        <button className="search-button">
+          Search
+        </button>
+      </form>
+      <div className="albuminfos">
+        {Albums.map((data) => (
+          <AlbumInfo
+            key={data.id}
+            data={data}  
+            tracks={Selected}
+            setTracks={setSelected}
           />
-          <button className="search-button">
-            Search
-          </button>
-        </form>
-        <div className="albuminfos">
-          {albums.map((data) => (
-            <AlbumInfo key={data.id} data={data} />
-          ))}
-        </div>
+        ))}
       </div>
-    );
-  }
-}
-
+    </div>
+  );
+};
 export default Home;

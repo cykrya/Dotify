@@ -1,7 +1,16 @@
 import React from "react";
-import Selectbtn from "../Selectbtn";
-const AlbumInfo = ({ data }) => {
+
+
+
+const AlbumInfo = ({ data,tracks,setTracks }) => {
   const album = data.album;
+  
+  const dataCheck= ()=>{
+    if (tracks.includes(data.id))
+      setTracks((prev) => prev.filter((id) => id !== data.id));
+    else 
+    setTracks((prev) => [...prev, data.id]);
+  }
   console.log(album);
   return (
     <div className="album-body">
@@ -41,7 +50,14 @@ const AlbumInfo = ({ data }) => {
             ))}
           </p>
         </div>
-        <Selectbtn/>
+        <button
+            onClick={dataCheck}
+            className={`${
+              !tracks.includes(data.id) ? "btn-normal" : "btn-selected"
+            } `}
+          >
+            {tracks.includes(data.id) ? "Deselect" : "Select"}
+          </button>
         
       </div>
     </div>

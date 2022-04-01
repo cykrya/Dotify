@@ -45,7 +45,7 @@ button {
     text-align: center;
     width: 150px;
     padding: 10px;
-    background-image: url("./components/img/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg");
+    background-color: rgb(186, 153, 102);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -70,7 +70,13 @@ button:hover {
     transition: all 0.1s;
 }
 
-.btn-select {
+.btn-normal {
+    margin-bottom: 10px;
+}
+
+.btn-selected {
+    background-color: rgb(133, 120, 100);
+    color: #45126f;
     margin-bottom: 10px;
 }
 
