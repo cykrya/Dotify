@@ -17,23 +17,24 @@ const Home = ({ accessToken }) => {
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
   const Authorization = `Bearer ${accessToken}`;
-const Search = (e) => {
-  e.preventDefault();
-  axios.get(
-    `https://api.spotify.com/v1/search?${formatParameter({
+    
+  const Search = (e) => {
+      e.preventDefault();
+    axios.get(
+      `https://api.spotify.com/v1/search?${formatParameter({
       q: searchTrack,
       type: "track",
-    })}`,
-    {
-      headers: {
+      })}`,
+      {
+        headers: {
         "Content-Type": "application/json",
         Authorization,
-      },
-    }
-  )
+        },
+      }
+    )
 
     .then((response) => {
-      console.log(response)
+
       setAlbums(response.data.tracks.items);
     });
 };
@@ -55,7 +56,7 @@ const addPlaylist = (e) => {
 
   .then((response1) => {
     setuserID(response1.data.id);
-    console.log(userID)
+
   })
   
   //make playlist
@@ -75,7 +76,7 @@ const addPlaylist = (e) => {
 
   .then((response2) => {
     setPlaylist(response2.data);
-    console.log(Playlists);
+
   });
 
 };

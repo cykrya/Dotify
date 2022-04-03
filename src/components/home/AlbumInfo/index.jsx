@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import formatParameter from "../../../utils/formatParameter";
-import formatParameter2 from "../../../utils/formatParameter2";
+
 
 const AlbumInfo = ({ data,tracks,setTracks,searchTrack,setPlaylistsTrack,Authorization,PlaylistsTrack,Playlists}) => {
   const album = data.album;
@@ -9,17 +9,17 @@ const AlbumInfo = ({ data,tracks,setTracks,searchTrack,setPlaylistsTrack,Authori
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
       setTracks((prev) => prev.filter((uri) => uri !== data.uri));
-      console.log(data.uri); 
+      console.log('track removed');
     }
     else {
       setTracks((prev) => [...prev, data.uri]);
-      console.log(formatParameter({
-          uris: (data.uri)
-        }));
+      console.log('track added');
+      //adding track
       axios.post(
         `https://api.spotify.com/v1/playlists/${Playlists.id}/tracks?${formatParameter({
-          uris: data.uri
-        })}`,
+          uris: data.uri,
+        })}`,{},
+        
         {  
           headers: {
             "Content-Type": "application/json",
