@@ -50,9 +50,11 @@ button {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-radius: 25px;
+    margin-bottom: 10px;
 }
 
-.search-button {
+.search-button,
+.playlist-button {
     width: 80px;
     border-radius: 5px;
     padding: 2px;
@@ -70,14 +72,9 @@ button:hover {
     transition: all 0.1s;
 }
 
-.btn-normal {
-    margin-bottom: 10px;
-}
-
 .btn-selected {
     background-color: rgb(133, 120, 100);
     color: #45126f;
-    margin-bottom: 10px;
 }
 
 .album-img {
@@ -86,4 +83,20 @@ button:hover {
     width: 250px;
     height: 250px;
     padding: 5px;
+}
+
+.playlist-name,
+.playlist-description {
+    margin-right: 10px;
+}
+
+.playlistcreation,
+.playlistinfos {
+    position: static;
+    float: right;
+    padding-right: 100px;
+}
+
+.disabled {
+    pointer-events: none;
 }

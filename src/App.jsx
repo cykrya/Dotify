@@ -1,8 +1,9 @@
-import { Component } from "react";
+import { Component, useState,useEffect } from "react";
 import "./App.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import getQueryParams from "./utils/getQueryParams";
+
 
 class App extends Component {
   state = {

@@ -1,17 +1,52 @@
 import React from "react";
+import axios from "axios";
+import formatParameter from "../../../utils/formatParameter";
+import formatParameter2 from "../../../utils/formatParameter2";
 
-
-
-const AlbumInfo = ({ data,tracks,setTracks }) => {
+const AlbumInfo = ({ data,tracks,setTracks,searchTrack,setPlaylistsTrack,Authorization,PlaylistsTrack,Playlists}) => {
   const album = data.album;
   
   const dataCheck= ()=>{
-    if (tracks.includes(data.id))
-      setTracks((prev) => prev.filter((id) => id !== data.id));
-    else 
-    setTracks((prev) => [...prev, data.id]);
+    if (tracks.includes(data.uri)){
+      setTracks((prev) => prev.filter((uri) => uri !== data.uri));
+      console.log(data.uri); 
+    }
+    else {
+      setTracks((prev) => [...prev, data.uri]);
+      console.log(formatParameter({
+          uris: (data.uri)
+        }));
+      axios.post(
+        `https://api.spotify.com/v1/playlists/${Playlists.id}/tracks?${formatParameter({
+          uris: data.uri
+        })}`,
+        {  
+          headers: {
+            "Content-Type": "application/json",
+            Authorization,
+          },
+        }
+      )
+    
+      .then((response3) => {
+        setPlaylistsTrack(response3.data);
+        console.log(PlaylistsTrack);
+      });
+    }
+    console.log(tracks);
+    // return(
+    //   <div className="track-list">
+    //     {tracks.map((data) => (
+    //       <PlaylistInfo
+    //         key={data.uri}
+    //         data={data}
+    //         tracks={tracks}
+    //       />
+    //     ))}
+    //   </div>
+    // )  
   }
-  console.log(album);
+  // console.log(data);
   return (
     <div className="album-body">
       <div className="album-imgg">
@@ -50,15 +85,16 @@ const AlbumInfo = ({ data,tracks,setTracks }) => {
             ))}
           </p>
         </div>
-        <button
+        <button type="button"
             onClick={dataCheck}
             className={`${
-              !tracks.includes(data.id) ? "btn-normal" : "btn-selected"
+              tracks.includes(data.uri) ? "btn-selected" : "btn-default"
             } `}
           >
-            {tracks.includes(data.id) ? "Deselect" : "Select"}
-          </button>
-        
+            {tracks.includes(data.uri) ? "Deselect" : "Select"}
+        </button>   
+      </div>
+      <div className="playlist">   
       </div>
     </div>
   );
