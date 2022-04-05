@@ -1,36 +1,33 @@
-import { Component, useState,useEffect } from "react";
+import {useState,useEffect } from "react";
 import "./App.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import getQueryParams from "./utils/getQueryParams";
+import { Provider } from "react-redux";
+import store from "./components/core/store";
 
-
-class App extends Component {
-  state = {
-    accessToken:
-      '',
-  };
-
-  componentDidMount() {
+const App = () => {
+  const [accessToken,setAccessToken]= useState('');
+  
+  useEffect(()=>{
     const { access_token = null } = getQueryParams(window.location.hash);
-    if (access_token) this.setState({ accessToken: access_token });
-  }
+    if (access_token) setAccessToken(access_token);
+  },[]);
 
-  render() {
-    const { accessToken = null } = this.state;
-    if (accessToken)
-      return (
-        <div className="App">
-          <Home accessToken={accessToken} />
-        </div>
-      );
-
+  if (accessToken)
     return (
+      <Provider store={store}>
       <div className="App">
-        <Login />
+        <Home accessToken={accessToken} />
       </div>
+      </Provider>
     );
-  }
+
+  return (
+    <div className="App">
+      <Login />
+    </div>
+  );
 }
 
 export default App;

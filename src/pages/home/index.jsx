@@ -1,13 +1,14 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import axios from "axios";
 import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
+import {useDispatch, useSelector } from "react-redux";
+import { getAccessToken } from "../../components/core/action";
 
-// import albums from "./albums";
 
 
 
-const Home = ({ accessToken }) => {
+const Home = (accessToken) => {
   const [Albums, setAlbums] = useState([]);
   const [userID, setuserID] = useState([]);
   const [searchTrack, setSearchTrack] = useState("");
@@ -16,10 +17,15 @@ const Home = ({ accessToken }) => {
   const [Playlists, setPlaylist] = useState([]);
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
-  const Authorization = `Bearer ${accessToken}`;
-    
+  const dispatch=useDispatch();
+
+  useEffect (() => {
+    dispatch(getAccessToken (accessToken));
+  }, [])
+  
+  const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken).accessToken}`;
   const Search = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     axios.get(
       `https://api.spotify.com/v1/search?${formatParameter({
       q: searchTrack,
@@ -32,9 +38,8 @@ const Home = ({ accessToken }) => {
         },
       }
     )
-
+    
     .then((response) => {
-
       setAlbums(response.data.tracks.items);
     });
 };
@@ -140,7 +145,6 @@ const addPlaylist = (e) => {
             setTracks={setSelected}
             searchTrack= {searchTrack}
             setPlaylistsTrack= {setPlaylistsTrack}
-            Authorization={Authorization}
             PlaylistsTrack= {PlaylistsTrack}
             Playlists={Playlists}
           />

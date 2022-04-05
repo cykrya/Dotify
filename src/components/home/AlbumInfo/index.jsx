@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
 import formatParameter from "../../../utils/formatParameter";
+import { useSelector } from "react-redux";
 
 
-const AlbumInfo = ({ data,tracks,setTracks,searchTrack,setPlaylistsTrack,Authorization,PlaylistsTrack,Playlists}) => {
+const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Playlists}) => {
   const album = data.album;
-  
+  const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken).accessToken}`;
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
       setTracks((prev) => prev.filter((uri) => uri !== data.uri));
