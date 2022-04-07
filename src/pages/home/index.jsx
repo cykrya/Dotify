@@ -17,13 +17,15 @@ const Home = (accessToken) => {
   const [Playlists, setPlaylist] = useState([]);
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
-  const dispatch=useDispatch();
-
+  const token=((useSelector((state)=>state.accessToken)).accessToken);
+  const Authorization = `Bearer ${token}`;
   useEffect (() => {
-    dispatch(getAccessToken (accessToken));
-  }, [])
+    console.log('token: ' +token)
+  }, [token])
+
   
-  const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken).accessToken}`;
+  
+  //fitur search
   const Search = (e) => {
     e.preventDefault();
     axios.get(
@@ -123,18 +125,6 @@ const addPlaylist = (e) => {
           Search
         </button>
       </form>
-      
-      {/* <div className="playlistinfos">
-        <h1> Playlist</h1>
-        {Playlists.map((tracks) => (
-          <AlbumInfo
-            key={tracks.uri}
-            data={tracks.data}  
-            tracks={Selected}
-            setTracks={setSelected}
-          />
-        ))}
-      </div> */}
       
       <div className="albuminfos">
         {Albums.map((data) => (

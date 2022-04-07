@@ -2,11 +2,11 @@ import { Component } from "react";
 import formatParameter from "../../utils/formatParameter";
 
 class Login extends Component {
+  
   render() {
     const client_id = "35557af2eed94588b929b52693bc2ce7";
     const scope = "playlist-modify-private";
     const redirect_uri = "http://localhost:3000";
-
     return (
       <>
         <div className="body-login">
