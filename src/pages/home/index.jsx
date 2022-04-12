@@ -1,14 +1,15 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect, useState } from "react";
 import axios from "axios";
 import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
-import {useDispatch, useSelector } from "react-redux";
-import { getAccessToken } from "../../components/core/action";
+import {useSelector } from "react-redux";
+//import { getAccessToken } from "../../components/core/action";
 
 
 
 
-const Home = (accessToken) => {
+const Home = () => {
   const [Albums, setAlbums] = useState([]);
   const [userID, setuserID] = useState([]);
   const [searchTrack, setSearchTrack] = useState("");

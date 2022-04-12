@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React,{ Component } from "react";
 import formatParameter from "../../utils/formatParameter";
 
 class Login extends Component {
