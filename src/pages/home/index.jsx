@@ -4,6 +4,7 @@ import axios from "axios";
 import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
 import {useSelector } from "react-redux";
+import { Button, FormControl, TextField } from "@mui/material";
 //import { getAccessToken } from "../../components/core/action";
 
 
@@ -116,7 +117,7 @@ const addPlaylist = (e) => {
         </form>
       </div>
       
-      <form onSubmit={Search} className="ssearch">
+      {/* <form onSubmit={Search} className="ssearch">
         <input
           onChange={(e) => setSearchTrack(e.target.value)}
           className="inputt"
@@ -125,6 +126,12 @@ const addPlaylist = (e) => {
         <button className="search-button">
           Search
         </button>
+      </form> */}
+      <form onSubmit={Search} className="ssearch">
+        <FormControl onSubmit={Search} className="ssearch">
+          <TextField onChange={(e)=>setSearchTrack(e.target.value)} label="track" variant="outlined" className="inputt" type="text"/>
+          <Button variant="contained" type="input" className="search-button">Search</Button>
+        </FormControl>
       </form>
       
       <div className="albuminfos">
