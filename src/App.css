@@ -76,12 +76,13 @@ button {
     text-align: center;
     width: 150px;
     padding: 10px;
-    background-color: rgb(186, 153, 102);
+    background-color: #ba9966;
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-radius: 25px;
     margin-bottom: 10px;
+    padding-bottom: 100px;
 }
 
 .search-button,
@@ -94,17 +95,11 @@ button {
 
 button:hover {
     color: #201a25;
-    font-size: 20px;
-    transition: all 0.1s;
-}
-
-.search-button:hover {
-    font-size: 14px;
     transition: all 0.1s;
 }
 
 .btn-selected {
-    background-color: rgb(133, 120, 100);
+    background-color: #857864;
     color: #45126f;
 }
 
@@ -126,6 +121,10 @@ button:hover {
     position: static;
     float: right;
     padding-right: 100px;
+}
+
+.notrackselected {
+    display: none;
 }
 
 .disabled {

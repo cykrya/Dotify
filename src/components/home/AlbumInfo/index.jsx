@@ -1,21 +1,25 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import axios from "axios";
 import formatParameter from "../../../utils/formatParameter";
 import { useSelector } from "react-redux";
+import { Box, Button } from "@mui/material";
 
 
 const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Playlists}) => {
   const album = data.album;
-  const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken).accessToken}`;
+  const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken)}`;
+  console.log((useSelector((state)=>state.accessToken)).accessToken);
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
       setTracks((prev) => prev.filter((uri) => uri !== data.uri));
       console.log('track removed');
+      
     }
     else {
       setTracks((prev) => [...prev, data.uri]);
-      console.log('track added');
+   
       //adding track
       axios.post(
         `https://api.spotify.com/v1/playlists/${Playlists.id}/tracks?${formatParameter({
@@ -32,36 +36,28 @@ const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Play
     
       .then((response3) => {
         setPlaylistsTrack(response3.data);
-        console.log(PlaylistsTrack);
+        console.log("tracks added");
+        
       });
     }
-    console.log(tracks);
-    // return(
-    //   <div className="track-list">
-    //     {tracks.map((data) => (
-    //       <PlaylistInfo
-    //         key={data.uri}
-    //         data={data}
-    //         tracks={tracks}
-    //       />
-    //     ))}
-    //   </div>
-    // )  
+
+    
   }
-  // console.log(data);
+  
   return (
+    <>
+    
     <div className="album-body">
       <div className="album-imgg">
         <img
           src={album.images[1].url}
           alt={data.name}
-          className="album-img"
-        />
+          className="album-img" />
       </div>
       <div className="album-bodyy">
         <div className="album-info">
           <h3 className="album-track">
-            <a className="anchor" href={data.external_urls.spotify }>
+            <a className="anchor" href={data.external_urls.spotify}>
               {data.name}
             </a>
           </h3>
@@ -77,7 +73,7 @@ const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Play
                   key={artis.id}
                   href={artis.external_urls.spotify}
                   target="_blank"
-                  
+
                   rel="noopener noreferrer"
                 >
                   {artis.name}
@@ -87,19 +83,23 @@ const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Play
             ))}
           </p>
         </div>
-        <button type="button"
+        <Box mb={0.8}>  
+          <Button variant="contained" type="input"
             onClick={dataCheck}
-            className={`${
-              tracks.includes(data.uri) ? "btn-selected" : "btn-default"
-            } `}
+            className={`${tracks.includes(data.uri) ? "btn-selected" : "btn-default"} `}
           >
             {tracks.includes(data.uri) ? "Deselect" : "Select"}
-        </button>   
+          </Button>
+        </Box>
       </div>
-      <div className="playlist">   
+      <div className="playlist">
       </div>
     </div>
+  
+      </>  
   );
+  
 };
+
 
 export default AlbumInfo;
