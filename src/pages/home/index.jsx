@@ -4,12 +4,21 @@ import axios from "axios";
 import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
 import {useSelector } from "react-redux";
+<<<<<<< HEAD
 import { Box, Button, FormControl, TextField } from "@mui/material";
 //import { getAccessToken } from "../../components/core/action";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 
 const theme = createTheme({
+=======
+import { Alert, Box, Button, Collapse, FormControl, IconButton, TextField } from "@mui/material";
+//import { getAccessToken } from "../../components/core/action";
+//import CloseIcon from '@mui/icons-material/Close';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme ({
+>>>>>>> a8d7d82 (added test for track component)
   palette: {
     primary: {
       main: '#857864',
@@ -30,9 +39,17 @@ const Home = () => {
   const [PlaylistName, setPlaylistName] = useState("");
   const [PlaylistDesc, setPlaylistDesc] = useState("");
   const [Playlists, setPlaylist] = useState([]);
+<<<<<<< HEAD
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
   const token=((useSelector((state)=>state.accessToken)).accessToken);
+=======
+  const [PlaylistsStatus, setPlaylistStatus] = useState(true);
+  //const [Open, setOpen] = useState(false);
+  const [Selected, setSelected] = useState([]);
+  const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
+  const token=((useSelector((state)=>state.Spotify)).accessToken);
+>>>>>>> a8d7d82 (added test for track component)
   const Authorization = `Bearer ${token}`;
   useEffect (() => {
     console.log('token: ' +token)
@@ -43,6 +60,10 @@ const Home = () => {
   //fitur search
   const Search = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
+=======
+    console.log("searching track")
+>>>>>>> a8d7d82 (added test for track component)
     axios.get(
       `https://api.spotify.com/v1/search?${formatParameter({
       q: searchTrack,
@@ -64,7 +85,12 @@ const Home = () => {
   
 const addPlaylist = (e) => {
   e.preventDefault();
+<<<<<<< HEAD
   console.log("playlist")
+=======
+  console.log("getting user id")
+
+>>>>>>> a8d7d82 (added test for track component)
   //get userID
   axios.get(
     `https://api.spotify.com/v1/me`,
@@ -78,10 +104,18 @@ const addPlaylist = (e) => {
 
   .then((response1) => {
     setuserID(response1.data.id);
+<<<<<<< HEAD
 
   })
   
   //make playlist
+=======
+    console.log("got user id")
+  })
+  
+  //make playlist
+  console.log("making playlist")
+>>>>>>> a8d7d82 (added test for track component)
   axios.post(
     `https://api.spotify.com/v1/users/${userID}/playlists`,{
       "name": `${PlaylistName}`,
@@ -98,7 +132,34 @@ const addPlaylist = (e) => {
 
   .then((response2) => {
     setPlaylist(response2.data);
+<<<<<<< HEAD
     console.log("playlist")
+=======
+    setPlaylistStatus(false);
+    console.log("playlist made.")
+    // return(
+    //   <Box sx={{width:'100%'}}>
+    //     <Collapse in={Open}>
+    //       <Alert
+    //         action={
+    //           <IconButton 
+    //             aria-label="close"
+    //             color="inherit"
+    //             size="small"
+    //             onClick={()=>{
+    //               setOpen(false);
+    //             }}
+    //           >
+    //             <CloseIcon fontSize="inherit" />
+    //           </IconButton>
+    //         }
+    //         sx= {{mb:2}}>
+    //           Playlist Created!
+    //         </Alert>
+    //     </Collapse>
+    //   </Box>
+    // )
+>>>>>>> a8d7d82 (added test for track component)
   });
   
 };
@@ -133,7 +194,11 @@ const addPlaylist = (e) => {
           <FormControl onSubmit={Search} className="ssearch">
             <TextField onChange={(e) => setSearchTrack(e.target.value)} label="track" variant="outlined" className="inputt" type="text" />
             <Box mt={0.5}>
+<<<<<<< HEAD
               <Button variant="contained" type="input" className="search-button">Search</Button>
+=======
+              <Button disabled= {PlaylistsStatus} variant="contained" type="input" className="search-button">Search</Button>
+>>>>>>> a8d7d82 (added test for track component)
             </Box>
           </FormControl>
         </form>
@@ -147,7 +212,10 @@ const addPlaylist = (e) => {
               setTracks={setSelected}
               searchTrack={searchTrack}
               setPlaylistsTrack={setPlaylistsTrack}
+<<<<<<< HEAD
               PlaylistsTrack={PlaylistsTrack}
+=======
+>>>>>>> a8d7d82 (added test for track component)
               Playlists={Playlists} />
           ))}
         </div>

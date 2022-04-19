@@ -7,6 +7,10 @@
     "@emotion/styled": "^11.8.1",
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
+<<<<<<< HEAD
+=======
+    "@mui/icons-material": "^5.6.2",
+>>>>>>> a8d7d82 (added test for track component)
     "@mui/material": "^5.6.1",
     "@reduxjs/toolkit": "^1.8.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
@@ -24,6 +28,10 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.1.2",
+<<<<<<< HEAD
+=======
+    "redux-mock-store": "^1.5.4",
+>>>>>>> a8d7d82 (added test for track component)
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },

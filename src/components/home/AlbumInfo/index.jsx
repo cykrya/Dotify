@@ -7,10 +7,23 @@ import { useSelector } from "react-redux";
 import { Box, Button } from "@mui/material";
 
 
+<<<<<<< HEAD
 const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Playlists}) => {
   const album = data.album;
   const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken)}`;
   console.log((useSelector((state)=>state.accessToken)).accessToken);
+=======
+const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
+  const album = data.album;
+  const Authorization = `Bearer ${((useSelector((state)=>state.Spotify)).accessToken)}`;
+  console.log(data);
+  console.log(tracks);
+  console.log(Playlists);
+
+
+
+
+>>>>>>> a8d7d82 (added test for track component)
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
       setTracks((prev) => prev.filter((uri) => uri !== data.uri));

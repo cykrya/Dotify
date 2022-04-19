@@ -4,7 +4,11 @@ import { accessTokenReducer } from "./reducer";
 
 export default configureStore ({
   reducer: {
+<<<<<<< HEAD
     accessToken: accessTokenReducer
+=======
+    Spotify: accessTokenReducer
+>>>>>>> a8d7d82 (added test for track component)
   },
   devTools: true
 });

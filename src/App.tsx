@@ -16,7 +16,10 @@ const App = () => {
   const [linkState,setlinkState]= useState("");
   const dispatch=useDispatch();
   useEffect(()=>{
+<<<<<<< HEAD
     //const { access_token = null } = getQueryParams(window.location.hash);
+=======
+>>>>>>> a8d7d82 (added test for track component)
     let param: {[key : string] : string} = getQueryParams(window.location.hash);
     if (param.access_token) {
       setAccessToken(param.access_token);
@@ -30,6 +33,7 @@ const App = () => {
 
   if (accessToken){
     dispatch(getAccessToken (accessToken));
+<<<<<<< HEAD
     console.log('test1')
     return (
       // <Router >
@@ -49,13 +53,40 @@ const App = () => {
       // </Provider>
       // </Router>
       <h1>test</h1>
+=======
+    return (
+      <Router >
+         <Switch>
+          <Route path="/create-playlist" >
+            <Home />
+          </Route>
+        </Switch>
+      <Provider store={store}>
+      <div className="App">
+        <Link
+          className={`${
+              linkState.includes("pressed") ? "disabled-link" : "link"
+            } `}
+          onClick={() => changelinkstate()}
+          to="/create-playlist">{linkState.includes("pressed") ? "" : "Create Playlist"}</Link>
+      </div>
+      </Provider>
+      </Router>
+   
+>>>>>>> a8d7d82 (added test for track component)
     );
     }
   return (
     <div className="App">
       <Router>
         <Switch>
+<<<<<<< HEAD
           <Route path="/" component={Login}></Route>
+=======
+          <Route path="/">
+            <Login />
+          </Route>
+>>>>>>> a8d7d82 (added test for track component)
         </Switch>
       </Router>
     </div>
