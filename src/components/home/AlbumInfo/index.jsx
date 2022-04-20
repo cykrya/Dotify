@@ -8,11 +8,14 @@ import { Box, Button } from "@mui/material";
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const AlbumInfo = ({ data,tracks,setTracks,setPlaylistsTrack,PlaylistsTrack,Playlists}) => {
   const album = data.album;
   const Authorization = `Bearer ${((useSelector((state)=>state.accessToken)).accessToken)}`;
   console.log((useSelector((state)=>state.accessToken)).accessToken);
 =======
+=======
+>>>>>>> 948f2a5 (minor fixes)
 const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
   const album = data.album;
   const Authorization = `Bearer ${((useSelector((state)=>state.Spotify)).accessToken)}`;
@@ -20,10 +23,13 @@ const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
   console.log(tracks);
   console.log(Playlists);
 
+<<<<<<< HEAD
 
 
 
 >>>>>>> a8d7d82 (added test for track component)
+=======
+>>>>>>> 948f2a5 (minor fixes)
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
       setTracks((prev) => prev.filter((uri) => uri !== data.uri));

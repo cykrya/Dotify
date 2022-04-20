@@ -13,7 +13,11 @@ describe('testing the app launch', () => {
     const mockStore = configureStore()
 
     let store
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 948f2a5 (minor fixes)
     it('Start the test on App!"', () => {
       store = mockStore(initialState)
       render(<Provider store={store}><App /></Provider>);
@@ -23,7 +27,11 @@ describe('testing the app launch', () => {
       userEvent.click(login);
 
       render(<Provider store={store}><Home /></Provider>)
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 948f2a5 (minor fixes)
     })
 })
 
@@ -108,10 +116,17 @@ describe('Testing the tracks component', () => {
       };
     const tracks=[]
     let store
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 948f2a5 (minor fixes)
     it('Start the test on AlbumInfo!"', () => {
       store = mockStore(initialState)
       render(<Provider store={store}><AlbumInfo data= {data} tracks= {tracks}/></Provider>);
     })
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 948f2a5 (minor fixes)

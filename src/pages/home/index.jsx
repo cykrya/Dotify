@@ -5,6 +5,7 @@ import AlbumInfo from "../../components/home/AlbumInfo";
 import formatParameter from "../../utils/formatParameter";
 import {useSelector } from "react-redux";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, FormControl, TextField } from "@mui/material";
 //import { getAccessToken } from "../../components/core/action";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -12,13 +13,19 @@ import { purple } from '@mui/material/colors';
 
 const theme = createTheme({
 =======
+=======
+>>>>>>> 948f2a5 (minor fixes)
 import { Alert, Box, Button, Collapse, FormControl, IconButton, TextField } from "@mui/material";
 //import { getAccessToken } from "../../components/core/action";
 //import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+<<<<<<< HEAD
 const theme = createTheme ({
 >>>>>>> a8d7d82 (added test for track component)
+=======
+const theme = createTheme({
+>>>>>>> 948f2a5 (minor fixes)
   palette: {
     primary: {
       main: '#857864',
@@ -40,16 +47,22 @@ const Home = () => {
   const [PlaylistDesc, setPlaylistDesc] = useState("");
   const [Playlists, setPlaylist] = useState([]);
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
   const token=((useSelector((state)=>state.accessToken)).accessToken);
 =======
+=======
+>>>>>>> 948f2a5 (minor fixes)
   const [PlaylistsStatus, setPlaylistStatus] = useState(true);
   //const [Open, setOpen] = useState(false);
   const [Selected, setSelected] = useState([]);
   const [PlaylistsTrack, setPlaylistsTrack] = useState([]);
   const token=((useSelector((state)=>state.Spotify)).accessToken);
+<<<<<<< HEAD
 >>>>>>> a8d7d82 (added test for track component)
+=======
+>>>>>>> 948f2a5 (minor fixes)
   const Authorization = `Bearer ${token}`;
   useEffect (() => {
     console.log('token: ' +token)
@@ -61,9 +74,13 @@ const Home = () => {
   const Search = (e) => {
     e.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     console.log("searching track")
 >>>>>>> a8d7d82 (added test for track component)
+=======
+    console.log("searching track")
+>>>>>>> 948f2a5 (minor fixes)
     axios.get(
       `https://api.spotify.com/v1/search?${formatParameter({
       q: searchTrack,
@@ -86,11 +103,15 @@ const Home = () => {
 const addPlaylist = (e) => {
   e.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
   console.log("playlist")
 =======
   console.log("getting user id")
 
 >>>>>>> a8d7d82 (added test for track component)
+=======
+  console.log("getting user id")
+>>>>>>> 948f2a5 (minor fixes)
   //get userID
   axios.get(
     `https://api.spotify.com/v1/me`,
@@ -105,17 +126,25 @@ const addPlaylist = (e) => {
   .then((response1) => {
     setuserID(response1.data.id);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   })
   
   //make playlist
 =======
+=======
+>>>>>>> 948f2a5 (minor fixes)
     console.log("got user id")
   })
   
   //make playlist
   console.log("making playlist")
+<<<<<<< HEAD
 >>>>>>> a8d7d82 (added test for track component)
+=======
+  
+  //make playlist
+>>>>>>> 948f2a5 (minor fixes)
   axios.post(
     `https://api.spotify.com/v1/users/${userID}/playlists`,{
       "name": `${PlaylistName}`,
@@ -133,10 +162,17 @@ const addPlaylist = (e) => {
   .then((response2) => {
     setPlaylist(response2.data);
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log("playlist")
 =======
     setPlaylistStatus(false);
     console.log("playlist made.")
+=======
+    console.log("playlist")
+    setPlaylistStatus(false);
+    console.log("playlist made.")
+
+>>>>>>> 948f2a5 (minor fixes)
     // return(
     //   <Box sx={{width:'100%'}}>
     //     <Collapse in={Open}>
@@ -159,7 +195,10 @@ const addPlaylist = (e) => {
     //     </Collapse>
     //   </Box>
     // )
+<<<<<<< HEAD
 >>>>>>> a8d7d82 (added test for track component)
+=======
+>>>>>>> 948f2a5 (minor fixes)
   });
   
 };
@@ -195,10 +234,14 @@ const addPlaylist = (e) => {
             <TextField onChange={(e) => setSearchTrack(e.target.value)} label="track" variant="outlined" className="inputt" type="text" />
             <Box mt={0.5}>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Button variant="contained" type="input" className="search-button">Search</Button>
 =======
               <Button disabled= {PlaylistsStatus} variant="contained" type="input" className="search-button">Search</Button>
 >>>>>>> a8d7d82 (added test for track component)
+=======
+                <Button disabled= {PlaylistsStatus} variant="contained" type="input" className="search-button">Search</Button>
+>>>>>>> 948f2a5 (minor fixes)
             </Box>
           </FormControl>
         </form>
@@ -213,9 +256,12 @@ const addPlaylist = (e) => {
               searchTrack={searchTrack}
               setPlaylistsTrack={setPlaylistsTrack}
 <<<<<<< HEAD
+<<<<<<< HEAD
               PlaylistsTrack={PlaylistsTrack}
 =======
 >>>>>>> a8d7d82 (added test for track component)
+=======
+>>>>>>> 948f2a5 (minor fixes)
               Playlists={Playlists} />
           ))}
         </div>

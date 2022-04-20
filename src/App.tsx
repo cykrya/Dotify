@@ -17,9 +17,12 @@ const App = () => {
   const dispatch=useDispatch();
   useEffect(()=>{
 <<<<<<< HEAD
+<<<<<<< HEAD
     //const { access_token = null } = getQueryParams(window.location.hash);
 =======
 >>>>>>> a8d7d82 (added test for track component)
+=======
+>>>>>>> 948f2a5 (minor fixes)
     let param: {[key : string] : string} = getQueryParams(window.location.hash);
     if (param.access_token) {
       setAccessToken(param.access_token);
@@ -33,6 +36,7 @@ const App = () => {
 
   if (accessToken){
     dispatch(getAccessToken (accessToken));
+<<<<<<< HEAD
 <<<<<<< HEAD
     console.log('test1')
     return (
@@ -54,6 +58,8 @@ const App = () => {
       // </Router>
       <h1>test</h1>
 =======
+=======
+>>>>>>> 948f2a5 (minor fixes)
     return (
       <Router >
          <Switch>
@@ -72,8 +78,12 @@ const App = () => {
       </div>
       </Provider>
       </Router>
+<<<<<<< HEAD
    
 >>>>>>> a8d7d82 (added test for track component)
+=======
+ 
+>>>>>>> 948f2a5 (minor fixes)
     );
     }
   return (
@@ -81,12 +91,18 @@ const App = () => {
       <Router>
         <Switch>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Route path="/" component={Login}></Route>
 =======
           <Route path="/">
             <Login />
           </Route>
 >>>>>>> a8d7d82 (added test for track component)
+=======
+          <Route path="/" >
+            <Login />
+          </Route>
+>>>>>>> 948f2a5 (minor fixes)
         </Switch>
       </Router>
     </div>
