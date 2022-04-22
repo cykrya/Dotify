@@ -117,7 +117,7 @@ const addPlaylist = (e) => {
       <PlaylistCreated Open={Open}/>
       <PlaylistNotCreated PlaylistsStatus={PlaylistsStatus}/>
         <h1 className="title-home">
-          Dotify
+          Search
         </h1>
         <div className="playlistcreation">
           <h2>ADD PLAYLIST</h2>
