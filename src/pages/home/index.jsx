@@ -7,6 +7,7 @@ import {useSelector } from "react-redux";
 import { Box, Button, FormControl, TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PlaylistCreated from "../../components/home/alerts/PlaylistCreated";
+import PlaylistNotCreated from "../../components/home/alerts/PlaylistNotCreated";
 
 
 const theme = createTheme({
@@ -18,8 +19,6 @@ const theme = createTheme({
       main: '#11cb5f',
     },
   },
-
-  
 });
 
 
@@ -54,7 +53,6 @@ const Home = () => {
       setuserID(response1.data.id);
       console.log("got user id")
     })
-    
   },[Authorization]);
 
   useEffect(() => {
@@ -117,12 +115,12 @@ const addPlaylist = (e) => {
     <ThemeProvider theme={theme}>
       <div className="body">
       <PlaylistCreated Open={Open}/>
+      <PlaylistNotCreated PlaylistsStatus={PlaylistsStatus}/>
         <h1 className="title-home">
-          Home
+          Dotify
         </h1>
         <div className="playlistcreation">
           <h2>ADD PLAYLIST</h2>
-          
           <form onSubmit={addPlaylist} className="playlistForm">
           <FormControl onSubmit={Search} className="ssearch">
             <TextField onChange={(e) => setPlaylistName(e.target.value)} label="Playlist Name" variant="outlined" className="playlist-name" type="text" />
@@ -130,7 +128,7 @@ const addPlaylist = (e) => {
             <Box mt={0.5}>
                 <Button onClick={() => {
                     setOpen(true);
-                  }}   variant="contained" type="input"  className="playlist-button">Create</Button>
+                  }} disabled= {!Boolean(PlaylistName.length>9)}  variant="contained" type="input"  className="playlist-button">Create</Button>
             </Box>
           </FormControl>
           </form>
@@ -159,7 +157,6 @@ const addPlaylist = (e) => {
         </div>
 
       </div>
-      
     </ThemeProvider>
   );
 };

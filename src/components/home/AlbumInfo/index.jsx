@@ -59,12 +59,14 @@ const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
     <>
     
     <div className="album-body">
+      
       <div className="album-imgg">
         <img
           src={album.images[1].url}
           alt={data.name}
           className="album-img" />
       </div>
+      
       <div className="album-bodyy">
         <div className="album-info">
           <h3 className="album-track">

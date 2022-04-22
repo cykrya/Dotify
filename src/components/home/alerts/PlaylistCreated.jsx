@@ -4,7 +4,7 @@ const PlaylistCreated = ({Open}) => {
 return(
     <Box sx={{width:'93%'}}>
       <Collapse in={Open}>
-        <Alert sx= {{mb:2}}>
+        <Alert  sx= {{mb:2}}>
             Playlist Created!
         </Alert>
       </Collapse>

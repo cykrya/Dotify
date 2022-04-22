@@ -1,5 +1,6 @@
 body {
-    padding-left: 100px;
+    padding-left: 200px;
+    padding-right: 100px;
     background-image: url("./components/img/pawel-czerwinski-qztBRIrU1FM-unsplash.jpg");
     color: #3B3045;
 }
@@ -35,6 +36,10 @@ body {
     padding: 10px;
     background-color: #dfdfdf;
     border-radius: 25px;
+}
+
+.title-login {
+    font-size: 100px;
 }
 
 .App {
