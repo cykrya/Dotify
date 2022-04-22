@@ -101,7 +101,7 @@ const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
             onClick={dataCheck}
             className={`${tracks.includes(data.uri) ? "btn-selected" : "btn-default"} `}
           >
-            {tracks.includes(data.uri) ? "Deselect" : "Select"}
+            {tracks.includes(data.uri) ? "Remove" : "Add"}
           </Button>
         </Box>
       </div>
