@@ -1,7 +1,5 @@
-import React from 'react'
 import { render,screen } from "@testing-library/react";
 import App from "../App";
-
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import userEvent from '@testing-library/user-event';
@@ -20,6 +18,7 @@ describe('testing the app launch', () => {
       const login= screen.getByRole('link', {
         name: /Sign using spotify/i
       });
+      expect(login).toBeInTheDocument();
       userEvent.click(login);
 
       render(<Provider store={store}><Home /></Provider>)
@@ -112,5 +111,8 @@ describe('Testing the tracks component', () => {
     it('Start the test on AlbumInfo!"', () => {
       store = mockStore(initialState)
       render(<Provider store={store}><AlbumInfo data= {data} tracks= {tracks}/></Provider>);
+      const Select= screen.getByText(/Select/i);
+
+      expect(Select).toBeInTheDocument ();
     })
 })

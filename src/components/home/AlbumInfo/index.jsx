@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from "react";
 import axios from "axios";
 import formatParameter from "../../../utils/formatParameter";
 import { useSelector } from "react-redux";
@@ -10,15 +9,24 @@ import { Box, Button } from "@mui/material";
 const AlbumInfo = ({data,tracks,setTracks,setPlaylistsTrack,Playlists}) => {
   const album = data.album;
   const Authorization = `Bearer ${((useSelector((state)=>state.Spotify)).accessToken)}`;
-  console.log(data);
-  console.log(tracks);
-  console.log(Playlists);
 
   const dataCheck= ()=>{
     if (tracks.includes(data.uri)){
-      setTracks((prev) => prev.filter((uri) => uri !== data.uri));
-      console.log('track removed');
       
+      setTracks((prev) => prev.filter((uri) => uri !== data.uri));
+      //removing track
+      axios.delete(
+        `https://api.spotify.com/v1/playlists/${Playlists.id}/tracks`,
+        {  
+          headers: {
+            "Content-Type": "application/json",
+            Authorization,
+          },
+          data: {
+            "tracks": [{ "uri": `${data.uri}` }] 
+          }
+        }
+      )
     }
     else {
       setTracks((prev) => [...prev, data.uri]);
