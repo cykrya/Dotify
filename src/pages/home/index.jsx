@@ -113,7 +113,7 @@ const addPlaylist = (e) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="body">
+      <div className="home-body">
       <PlaylistCreated Open={Open}/>
       <PlaylistNotCreated PlaylistsStatus={PlaylistsStatus}/>
         <h1 className="title-home">

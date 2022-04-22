@@ -38,12 +38,12 @@ const App = () => {
         </Switch>
       <Provider store={store}>
       <div className="App">
-        <Link
+        <Link 
           className={`${
               linkState.includes("pressed") ? "disabled-link" : "link"
             } `}
           onClick={() => changelinkstate()}
-          to="/create-playlist">{linkState.includes("pressed") ? "" : "Create Playlist"}</Link>
+          to="/create-playlist" >{linkState.includes("pressed") ? "" : "Create Playlist"}</Link>
       </div>
       </Provider>
       </Router>
