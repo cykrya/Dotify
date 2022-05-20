@@ -27,7 +27,7 @@ The track will automatically be added to your playlist when you click the 'add' 
 3. after doing so, you should be able to open it on your browser by typing the address below
  [http://localhost:3000](http://localhost:3000)
 
-
+note: don't forget to change the uri to http://localhost:3000 on the login pages before starting as i'm using vercel to launch this app. alternatively, you can check the preview/working website on  [https://fe2module3assignment.vercel.app/](https://fe2module3assignment.vercel.app/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
