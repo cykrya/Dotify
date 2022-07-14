@@ -6,7 +6,7 @@ class Login extends Component {
   render() {
     const client_id = "35557af2eed94588b929b52693bc2ce7";
     const scope = "playlist-modify-private";
-    const redirect_uri = "https://dotify-cykrya.vercel.app/";
+    const redirect_uri = "https://dotify.vercel.app/";
     return (
       <>
         <div className="body-login">
